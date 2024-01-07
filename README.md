@@ -10,3 +10,5 @@ Step 1 - Project on GitHub
 Step 2 - Home page with HTML & CSS
   * Render templates and use static assets
   * Create the layout of the page using HTML tags
+  * Style the home page using CSS
+  * Use the Bootstrap framework
