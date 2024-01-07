@@ -3,38 +3,52 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="static/css/home.css">
     <title>Home</title>
+    <link rel="stylesheet" href="static/css/home.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
   </head>
   <body>
-    <h1>Student Stress Predictor</h1>
-    <img src="static/images/banner.jpg" alt="">
+    <div class="container">
+      <h1 class="text-center mt-4 mb-2">Student Stress Predictor</h1>
+      
+      <img id="banner" class="img-fluid" src="static/images/banner.jpg" alt="Banner Image">
+  
+      <h2 class="text-center  mt-4 mb-2">About Student Stress</h2>
 
-    <h2>About Student Stress</h2>
+      
 
-    <p>It's essential for students to manage stress to maintain their mental and physical well-being. Strategies like time management, seeking support from teachers or counselors, maintaining a healthy lifestyle with adequate sleep, exercise, and nutrition, and practicing mindfulness or relaxation techniques can help cope with stress. Additionally, having a support network of friends and family is crucial in navigating stressful periods.</p>
-    
-    <p>Creating a balanced schedule, setting realistic goals, and learning to prioritize tasks can significantly reduce stress levels. If stress becomes overwhelming, seeking professional help is always advisable. Universities often have counseling services or mental health professionals who can provide support and guidance. Taking care of mental health is just as important as academic success.</p>
+      <div class="row">
+        <div class="col-9">
 
-    <img src="static/images/middle_image.jpg" alt="">
-
-    <h2>About Student Stress Predictor</h2>
-    
-    <p>This software has been create using Maching Learnig. This Data has been collected Majorly from Engineering students Testing the following data points from 1 to 5.
-
-      <ul>
-        <li>Kindly Rate your Sleep Quality</li>
-        <li>How many times a week do you suffer headaches</li>
-        <li>How would you rate you academic performance</li>
-        <li>how would you rate your study load?</li>
-        <li>How many times a week you practice extracurricular activities</li>
-        <li>How would you rate your stress levels?</li>
-        
-      </ul>
-    </p>
-
-    <button>Contact Us</button>
-
+          <p class="lead">It's essential for students to manage stress to maintain their mental and physical well-being. Strategies like time management, seeking support from teachers or counselors, maintaining a healthy lifestyle with adequate sleep, exercise, and nutrition, and practicing mindfulness or relaxation techniques can help cope with stress. Additionally, having a support network of friends and family is crucial in navigating stressful periods.</p>
+          
+          <p class="lead">Creating a balanced schedule, setting realistic goals, and learning to prioritize tasks can significantly reduce stress levels. If stress becomes overwhelming, seeking professional help is always advisable. Universities often have counseling services or mental health professionals who can provide support and guidance. Taking care of mental health is just as important as academic success.</p>
+        </div>
+        <div class="col-3">
+           <img  class="img-thumbnail" src="static/images/middle_image.jpg" alt="Side Image">
+        </div>
+      </div>
+  
+      
+      <h2 class="text-center mt-4 mb-2">About Student Stress Predictor</h2>
+      
+      <p class="lead">This software has been create using Maching Learnig. This Data has been collected Majorly from Engineering students Testing the following data points from 1 to 5.
+        <ul class="lead">
+          <li>Kindly Rate your Sleep Quality</li>
+          <li>How many times a week do you suffer headaches</li>
+          <li>How would you rate you academic performance</li>
+          <li>how would you rate your study load?</li>
+          <li>How many times a week you practice extracurricular activities</li>
+          <li>How would you rate your stress levels?</li>
+        </ul>
+      </p>
+      
+      <div class="text-center">
+        <button type="button" class="btn btn-primary btn-lg">Contact Us</button>
+      </div>
+      
+    </div>
     
   </body>
 </html>
