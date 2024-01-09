@@ -18,3 +18,9 @@ Step 3 - Sign Up page with HTML & CSS
   * Create the layout of the page using HTML tags
   * Style the home page using CSS
   * Use the Bootstrap framework
+
+Step 4 - Login page with HTML & CSS
+  * Render templates and use static assets
+  * Create the layout of the page using HTML tags
+  * Style the home page using CSS
+  * Use the Bootstrap framework
