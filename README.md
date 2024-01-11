@@ -24,3 +24,9 @@ Step 4 - Login page with HTML & CSS
   * Create the layout of the page using HTML tags
   * Style the home page using CSS
   * Use the Bootstrap framework
+
+Step 5 - Nav bar with HTML & CSS
+  * Create the navbar using HTML & Bootstrap
+  * Style the navbar using CSS
+  * Create navbar logo 
+  * Create favicon
