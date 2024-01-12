@@ -28,9 +28,12 @@ Step 4 - Login page with HTML & CSS
 Step 5 - Navbar with HTML & CSS
   * Create the navbar using HTML & Bootstrap
   * Style the navbar using CSS
-  * Create navbar logo 
   * Create favicon
 
 Step 6 - Footer with HTML & CSS
   * Create the footer using HTML & Bootstrap
-  * Style the footer using CSS
+  * Style the footer using CSS\
+
+Step 6 - Functional
+  * Add Navbar & Footer links
+  * Add mailto links for the "contact us" button
