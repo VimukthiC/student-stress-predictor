@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
-from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import DataRequired, Email, ValidationError
+
 
 
 app = Flask(__name__)
