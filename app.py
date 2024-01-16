@@ -1,16 +1,11 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session, flash
+from wtforms import StringField, PasswordField, SubmitField
+from wtforms.validators import DataRequired, Email, ValidationError
+
 
 app = Flask(__name__)
 
-Users = [{
-    'username': 'user1',
-    'email': 'user1@gmail.com',
-    'password': '12345'
-}, {
-    'username': 'user2',
-    'email': 'user2@gmail.com',
-    'password': '12345'
-}]
+
 
 
 @app.route("/home")
@@ -20,7 +15,7 @@ def home():
 
 @app.route("/signup")
 def signup():
-  return render_template('signup.html', users=Users)
+  return render_template('signup.html')
 
 
 @app.route("/login")
