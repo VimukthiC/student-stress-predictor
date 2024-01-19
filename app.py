@@ -33,7 +33,7 @@ class LoginForm(FlaskForm):
     email = StringField("Email Address",validators=[DataRequired(), Email()])
     password = PasswordField("Password",validators=[DataRequired()])
     submit = SubmitField("Login")
-    
+
 
 @app.route("/", methods=["POST","GET"])
 def home():
@@ -61,7 +61,24 @@ def signup():
 
 @app.route("/login",  methods = ['GET','POST'])
 def login():
-    return render_template("login.html")
+    form = LoginForm()
+    if form.validate_on_submit():
+        email = form.email.data
+        password = form.password.data
+
+        cursor = mysql.connection.cursor()
+        cursor.execute("SELECT * FROM users where email=%s",(email,))
+        user = cursor.fetchone()
+        cursor.close()
+        
+        if user and bcrypt.checkpw(password.encode('utf-8'), user[3].encode('utf-8')):
+            session['id'] = user[0]
+            return redirect(url_for('dashboard'))
+        else:
+            flash("Login failed. Please check your email and password.")
+            return redirect(url_for('login'))
+
+    return render_template("login.html", form = form)
 
 @app.route('/dashboard')
 def dashboard():
