@@ -15,6 +15,20 @@ app.secret_key = 'WTF_CSRF_SECRET_KEY'
 
 mysql = MySQL(app)
 
+class RegistrationForm(FlaskForm):
+    name = StringField("User Name",validators=[DataRequired()])
+    email = StringField("Email Address",validators=[DataRequired(), Email()])
+    password = PasswordField("Password",validators=[DataRequired()])
+    submit = SubmitField("Sign In")
+
+    def validate_email(self,field):
+        cursor = mysql.connection.cursor()
+        cursor.execute("SELECT * FROM users WHERE email=%s",(field.data,))
+        user = cursor.fetchone()
+        cursor.close()
+        if user:
+            raise ValidationError("Email already taken")
+
 
 
 @app.route("/", methods=["POST","GET"])
