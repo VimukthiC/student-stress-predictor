@@ -29,7 +29,11 @@ class RegistrationForm(FlaskForm):
         if user:
             raise ValidationError("Email already taken")
 
-
+class LoginForm(FlaskForm):
+    email = StringField("Email Address",validators=[DataRequired(), Email()])
+    password = PasswordField("Password",validators=[DataRequired()])
+    submit = SubmitField("Login")
+    
 
 @app.route("/", methods=["POST","GET"])
 def home():
