@@ -15,26 +15,34 @@
     </header>
     
     <main class="container home_container">
-      <!-- <section>
-        <div>
-          <h1 class="text-center mt-4 mb-2">Student Stress Predictor</h1>
-         
-        </div>
-      </section> -->
+
+      {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="alert alert-danger">
+              <ul>
+                {% for message in messages %}
+                <li> {{message}} </li>
+                {% endfor%}
+              </ul>
+            </div>
+          {% endif %}
+      {% endwith %}
       
       <section class="mt-4">
           <form action="/login" method="POST">
+            {{ form.hidden_tag() }}
+
             <div class="mb-3">
               <label for="email" class="form-label">Email Address</label>
-              <input type="email" class="form-control" id="email">
+              <input type="email" name="email" class="form-control" id="email">
               <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password">
+              <input type="password" name="password" class="form-control" id="password">
             </div>
             <div>
-               <button type="button" id="btnLogin" class="btn btn-primary" >Login</button>
+               <button type="submit" name="submit" id="btnLogin" class="btn btn-primary" >Login</button>
             </div>
           </form>
       </section>
