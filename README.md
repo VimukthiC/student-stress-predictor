@@ -3,24 +3,20 @@ Predictions are made about students stress
 
 Step 1 - Project on GitHub
   * Creat a project on GitHub
-  * Open the project on Replit
   * Create and run flask web server
   * Push change back to GitHub
 
 Step 2 - Home page with HTML & CSS
-  * Render templates and use static assets
   * Create the layout of the page using HTML tags
   * Style the home page using CSS
   * Use the Bootstrap framework
 
 Step 3 - Sign Up page with HTML & CSS
-  * Render templates and use static assets
   * Create the layout of the page using HTML tags
   * Style the home page using CSS
   * Use the Bootstrap framework
 
 Step 4 - Login page with HTML & CSS
-  * Render templates and use static assets
   * Create the layout of the page using HTML tags
   * Style the home page using CSS
   * Use the Bootstrap framework
@@ -32,8 +28,20 @@ Step 5 - Navbar with HTML & CSS
 
 Step 6 - Footer with HTML & CSS
   * Create the footer using HTML & Bootstrap
-  * Style the footer using CSS\
+  * Style the footer using CSS
 
 Step 7 - Functional
   * Add Navbar & Footer links
   * Add mailto links for the "contact us" button
+
+Step 8 - Functional - Login & Sign Up
+  * Add login page controller methods, class, database query methods
+  * Add Sign Up page controller methods, class, database query methods
+
+Step 9 - Predictor form with HTML & CSS
+  * Create the Predictor form using HTML & Bootstrap
+  * Style the naformvbar using CSS
+
+
+
+
