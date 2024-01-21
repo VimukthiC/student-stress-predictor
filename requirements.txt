@@ -5,3 +5,4 @@ wtforms
 wtforms.validators
 bcrypt
 email_validator
+scikit-learn
