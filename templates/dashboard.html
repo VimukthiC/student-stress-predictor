@@ -1,2 +1,57 @@
 <!DOCTYPE html>
-<h1>Hello</h1>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="icon" href="static/images/vimu_favicon.png">
+    <title>Predictor Form</title>
+    <link rel="stylesheet" href="static/css/login.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      {% include 'nav.html'%}
+       <img id="banner" class="img-fluid" src="static/images/banner.jpg" alt="Banner Image">
+    </header>
+    
+    <main class="container home_container">
+
+      <section class="mt-4">
+          <form action="/dashboard" method="POST">
+            
+
+            <div class="mb-3">
+              <label for="sleep" class="form-label">Rate your Sleep quality?</label>
+              <input type="text" name="sleep" class="form-control" id="sleep">
+            </div>
+            <div class="mb-3">
+              <label for="headaches" class="form-label">How many times a week do you suffer headaches?</label>
+              <input type="text" name="headaches" class="form-control" id="headaches">
+            </div>
+            <div class="mb-3">
+              <label for="academic" class="form-label">How would you rate you academic performance?</label>
+              <input type="text" name="academic" class="form-control" id="academic">
+            </div>
+            <div class="mb-3">
+              <label for="study" class="form-label">How would you rate your study load?</label>
+              <input type="text" name="study" class="form-control" id="study">
+            </div>
+            <div class="mb-3">
+              <label for="activities" class="form-label">How many times a week you practice extracurricular activities?</label>
+              <input type="text" name="activities" class="form-control" id="activities">
+            </div>
+            <div>
+               <button type="submit" name="submit" id="btnLogin" class="btn btn-primary">Predict</button>
+            </div>
+
+            
+          </form>
+      </section>
+    </main>
+
+    <footer>
+      {% include 'footer.html'%}
+    </footer>
+    
+  </body>
+</html>
