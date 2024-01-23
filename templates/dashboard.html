@@ -21,24 +21,24 @@
             {{ form.hidden_tag() }}
 
             <div class="mb-3">
-              <label for="sleep" class="form-label">Rate your Sleep quality?</label>
-              <input type="text" name="sleep" class="form-control" id="sleep">
+              <label for="sleep_quality" class="form-label">Rate your sleep quality?</label>
+              <input type="text" name="sleep_quality" class="form-control" id="sleep_quality" required>
             </div>
             <div class="mb-3">
-              <label for="headaches" class="form-label">How many times a week do you suffer headaches?</label>
-              <input type="text" name="headaches" class="form-control" id="headaches">
+              <label for="suffer_headaches" class="form-label">How many times a week do you suffer headaches?</label>
+              <input type="text" name="suffer_headaches" class="form-control" id="suffer_headaches" required>
             </div>
             <div class="mb-3">
-              <label for="academic" class="form-label">How would you rate you academic performance?</label>
-              <input type="text" name="academic" class="form-control" id="academic">
+              <label for="academic_performance" class="form-label">How would you rate you academic performance?</label>
+              <input type="text" name="academic_performance" class="form-control" id="academic_performance" required>
             </div>
             <div class="mb-3">
-              <label for="study" class="form-label">How would you rate your study load?</label>
-              <input type="text" name="study" class="form-control" id="study">
+              <label for="study_load" class="form-label">How would you rate your study load?</label>
+              <input type="text" name="study_load" class="form-control" id="study_load" required>
             </div>
             <div class="mb-3">
-              <label for="activities" class="form-label">How many times a week you practice extracurricular activities?</label>
-              <input type="text" name="activities" class="form-control" id="activities">
+              <label for="extracurricular_activities" class="form-label">How many times a week you practice extracurricular activities?</label>
+              <input type="text" name="extracurricular_activities" class="form-control" id="extracurricular_activities" required>
             </div>
             <div>
                <button type="submit" name="submit" id="btnLogin" class="btn btn-primary">Predict</button>
@@ -46,6 +46,18 @@
 
             
           </form>
+
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="alert alert-danger">
+              <ul>
+                {% for message in messages %}
+                <li> {{message}} </li>
+                {% endfor%}
+              </ul>
+            </div>
+          {% endif %}
+          {% endwith %}
       </section>
     </main>
 
