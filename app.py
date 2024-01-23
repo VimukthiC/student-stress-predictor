@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_wtf import FlaskForm
-from wtforms import StringField,PasswordField,SubmitField,IntegerField
+from wtforms import StringField,PasswordField,SubmitField
 from wtforms.validators import DataRequired,Email,ValidationError
 import bcrypt
 from flask_mysqldb import MySQL
 import pickle
+import numpy as np
 
 app = Flask(__name__)
 
@@ -36,21 +37,15 @@ class LoginForm(FlaskForm):
     submit = SubmitField("Login")
 
 class PredictorForm(FlaskForm):
-    sleep = IntegerField("Rate your Sleep quality?",validators=[DataRequired()])
-    headaches = IntegerField("How many times a week do you suffer headaches?",validators=[DataRequired()])
-    academic = IntegerField("How would you rate you academic performance?",validators=[DataRequired()])
-    study = IntegerField("How would you rate your study load?",validators=[DataRequired()])
-    activities = IntegerField("How many times a week you practice extracurricular activities?",validators=[DataRequired()])
+    sleep_quality = StringField("Rate your sleep quality?",validators=[DataRequired()])
+    suffer_headaches = StringField("How many times a week do you suffer headaches?",validators=[DataRequired()])
+    academic_performance = StringField("How would you rate you academic performance?",validators=[DataRequired()])
+    study_load = StringField("How would you rate your study load?",validators=[DataRequired()])
+    extracurricular_activities = StringField("How many times a week you practice extracurricular activities?",validators=[DataRequired()])
     submit = SubmitField("Predict")
 
-    
-        
-def  prediction(list):
-        fileName = 'ml_model/student_stress.pickle'
-        with open(fileName, 'rb') as file:
-            model = pickle.load(file)
-        predict_value = model.predict([list])
-        return predict_value
+model = pickle.load(open('ml_model/ss_model.pkl', 'rb'))
+
 
 @app.route("/", methods=["POST","GET"])
 def home():
@@ -76,7 +71,7 @@ def signup():
     return render_template("signup.html" , form = form)
 
 
-@app.route("/login",  methods = ['GET','POST'])
+@app.route("/login",  methods= ["POST","GET"])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
@@ -97,28 +92,30 @@ def login():
 
     return render_template("login.html", form = form)
 
-@app.route('/dashboard', methods = ['GET','POST'])
+@app.route('/dashboard', methods = ["POST","GET"])
 def dashboard():
-    form = PredictorForm()
-    if form.validate_on_submit():
-        sleep = form.sleep.data
-        headaches = form.headaches.data
-        academic = form.academic.data
-        study = form.study.data
-        activities = form.activities.data
+    try:
 
-        feature_list = []
-        feature_list.append(sleep)
-        feature_list.append(headaches)
-        feature_list.append(academic)
-        feature_list.append(study)
-        feature_list.append(activities)
+        output = None
+        form = PredictorForm()
+        if form.validate_on_submit():
+            sleep_quality = form.sleep_quality.data
+            suffer_headaches = form.suffer_headaches.data
+            academic_performance = form.academic_performance.data
+            study_load = form.study_load.data
+            extracurricular_activities = form.extracurricular_activities.data
 
-        Predict = prediction(feature_list)
-        print(Predict)
+            features = np.array([[sleep_quality, suffer_headaches, academic_performance, study_load, extracurricular_activities]])
+            prediction = model.predict(features)
+            output = round(prediction[0], 1)
+            flash("Your stress level is %s" %output)
 
-    return render_template("dashboard.html", form = form)
+        return render_template("dashboard.html",form = form,output = output)
 
+    except Exception as e:
+        print(e)
+        return render_template("dashboard.html")
 
+    
 if __name__ == "__main__":
   app.run(debug=True)
