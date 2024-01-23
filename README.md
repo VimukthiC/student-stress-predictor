@@ -42,6 +42,6 @@ Step 9 - Predictor form with HTML & CSS
   * Create the Predictor form using HTML & Bootstrap
   * Style the naformvbar using CSS
 
-
-
-
+Step 10 - Functional - Predictor form
+  * Add Predictor form controller methods, class
+  * predictor form & ML model are linked
