@@ -49,13 +49,12 @@
 
           {% with messages = get_flashed_messages() %}
           {% if messages %}
-            <div class="alert alert-danger">
-              <ul>
-                {% for message in messages %}
-                <li> {{message}} </li>
-                {% endfor%}
-              </ul>
-            </div>
+          <div class="position-absolute top-50 start-50 translate-middle alert alert-success alert-dismissible">
+            {% for message in messages %}
+                    {{message}} 
+            {% endfor%}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
           {% endif %}
           {% endwith %}
       </section>
