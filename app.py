@@ -108,13 +108,26 @@ def dashboard():
             features = np.array([[sleep_quality, suffer_headaches, academic_performance, study_load, extracurricular_activities]])
             prediction = model.predict(features)
             output = round(prediction[0], 1)
-            flash("Your stress level is %s" %output)
 
+            if (output>= 0 and output <= 1.3):
+                flash("Low Stress : Students in this category experience minimal stress. They may feel calm, relaxed, and in control of their academic and personal responsibilities. %s" %output)
+            elif (output>1.3 and output<=2.3):
+                flash("Mild Stress : Students with mild stress may encounter occasional challenges but generally cope well. They can manage their workload and handle stressors effectively. %s" %output)
+            elif (output>2.3 and output<=3.3):
+                flash("Moderate Stress : This level indicates a moderate amount of stress. Students may face increased pressure, multiple demands, or some difficulties in managing their academic and personal commitments. %s" %output)
+            elif (output>3.3 and output<=4.3):
+                flash("High Stress : Students experiencing high stress levels may find it challenging to cope with the demands of their studies and life. Stressors may be impacting their overall well-being. %s" %output)
+            else :
+                flash("Very High Stress : This level represents an extreme amount of stress. Students in this category may be overwhelmed, struggling to manage their workload, and may need additional support to address their stressors. %s" %output)
+            
         return render_template("dashboard.html",form = form,output = output)
 
     except Exception as e:
         print(e)
         return render_template("dashboard.html")
+    
+
+    
 
     
 if __name__ == "__main__":
