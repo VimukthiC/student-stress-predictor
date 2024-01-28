@@ -125,7 +125,12 @@ def dashboard():
     except Exception as e:
         print(e)
         return render_template("dashboard.html")
-    
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash("You have been logout successfully")
+    return redirect(url_for('login'))   
 
     
 
