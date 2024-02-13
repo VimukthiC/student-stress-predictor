@@ -9,10 +9,14 @@ import numpy as np
 
 app = Flask(__name__)
 
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'mydatabase'
+# app.config['MYSQL_HOST'] = 'localhost'
+# app.config['MYSQL_USER'] = 'root'
+# app.config['MYSQL_PASSWORD'] = ''
+# app.config['MYSQL_DB'] = 'mydatabase'
+app.config['MYSQL_HOST'] = 'b6mfqiatycs4vihuictl-mysql.services.clever-cloud.com'
+app.config['MYSQL_USER'] = 'uu5atsbg5gs51adw'
+app.config['MYSQL_PASSWORD'] = 'XGPAtmZRkmhrJD7N18mi'
+app.config['MYSQL_DB'] = 'b6mfqiatycs4vihuictl'
 app.secret_key = 'WTF_CSRF_SECRET_KEY'
 
 mysql = MySQL(app)
