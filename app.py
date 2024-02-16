@@ -47,7 +47,7 @@ class PredictorForm(FlaskForm):
 model = pickle.load(open('ml_model/ss_model.pkl', 'rb'))
 
 
-@app.route("/", methods=["POST","GET"])
+@app.route("/", methods=["GET"])
 def home():
    return render_template('home.html')
     
@@ -110,15 +110,15 @@ def dashboard():
             output = round(prediction[0], 1)
 
             if (output>= 0 and output <= 1.3):
-                flash("Low Stress : Students in this category experience minimal stress. They may feel calm, relaxed, and in control of their academic and personal responsibilities. %s" %output)
+                flash("Low Stress : Students in this category experience minimal stress. They may feel calm, relaxed, and in control of their academic and personal responsibilities. Stress level : %s" %output)
             elif (output>1.3 and output<=2.3):
-                flash("Mild Stress : Students with mild stress may encounter occasional challenges but generally cope well. They can manage their workload and handle stressors effectively. %s" %output)
+                flash("Mild Stress : Students with mild stress may encounter occasional challenges but generally cope well. They can manage their workload and handle stressors effectively. Stress level : %s" %output)
             elif (output>2.3 and output<=3.3):
-                flash("Moderate Stress : This level indicates a moderate amount of stress. Students may face increased pressure, multiple demands, or some difficulties in managing their academic and personal commitments. %s" %output)
+                flash("Moderate Stress : This level indicates a moderate amount of stress. Students may face increased pressure, multiple demands, or some difficulties in managing their academic and personal commitments. Stress level : %s" %output)
             elif (output>3.3 and output<=4.3):
-                flash("High Stress : Students experiencing high stress levels may find it challenging to cope with the demands of their studies and life. Stressors may be impacting their overall well-being. %s" %output)
+                flash("High Stress : Students experiencing high stress levels may find it challenging to cope with the demands of their studies and life. Stressors may be impacting their overall well-being. Stress level : %s" %output)
             else :
-                flash("Very High Stress : This level represents an extreme amount of stress. Students in this category may be overwhelmed, struggling to manage their workload, and may need additional support to address their stressors. %s" %output)
+                flash("Very High Stress : This level represents an extreme amount of stress. Students in this category may be overwhelmed, struggling to manage their workload, and may need additional support to address their stressors. Stress level : %s" %output)
             
         return render_template("dashboard.html",form = form,output = output)
 
