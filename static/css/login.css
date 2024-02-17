@@ -26,8 +26,8 @@ p,ul{
   color: rgb(80,80,80);
 }
 
-#container{
-  max-width: 720px;
+.container{
+  max-width: 720px!important;
   margin: 0 auto 0 auto;
 }
 
